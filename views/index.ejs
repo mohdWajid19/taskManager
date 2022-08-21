@@ -29,19 +29,18 @@
                     <h4 class="text-center">In Complete tasks</h4>
                     <% data.forEach(function(task){ 
                         if (task.completed === false) { %>
-                        <div class="card bg-dark text-danger p-2 mb-2">
-                            <span class="d-inline card-text"><%= task.taskName  %></span>
-                            <a href="/"></a>
+                        <div class="card text-danger p-2 mb-2">
+                            <div class="card-text d-flex justify-content-between align-items-center"> <span><%= task.taskName  %></span><button type="button" class="btn-close" aria-label="Close"></button></div>
                         </div>
-
+                        
                         <% 
-                        }
-                    }); %>
-                    <h4 class="text-center">Completed tasks</h4>
-                    <% data.forEach(function(task){ 
-                        if (task.completed === true) { %>
+                    }
+                }); %>
+                <h4 class="text-center">Completed tasks</h4>
+                <% data.forEach(function(task){ 
+                    if (task.completed === true) { %>
                         <div class="card fst-italic text-success p-2 mb-2">
-                            <%= task.taskName  %>
+                            <div class="card-text d-flex justify-content-between align-items-center"> <span><%= task.taskName  %></span><button type="button" class="btn-close" aria-label="Close"></button></div>
                         </div>
                         <% 
                         }
