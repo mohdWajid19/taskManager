@@ -1,53 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <title>Task Manager</title>
     <style>
-        .container{
+        .container {
             min-height: 100vh;
         }
-        .task-list{
+
+        .task-list {
             max-height: 75vh;
+        }
+        @media (max-width: 992px) {
+            .container {
+              margin-left: 0;
+              margin-right: 0;
+              max-width: 100% !important;
+            }
+            .w-50 {
+                width: 65% !important;
+            }
+        }
+        @media (max-width: 767.8px) {
+            .container {
+              margin-left: 0;
+              margin-right: 0;
+              max-width: 100% !important;
+            }
+            .w-50 {
+                width: 100% !important;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container h-100   d-flex justify-content-center align-items-center">
         <div class="card m-2 h-75 p-2 w-50">
-            <h3 class="card-title text-center">Tasky Tracker</h3> 
-            <div class="card-header text-dark d-flex justify-content-between">
+            <div class="card-header text-dark d-flex">
+                <h3 class="card-title text-center m-auto ">Tasky Tracker</h3>
                 <button class="btn btn-primary btn-md m-auto">Add</button>
-                <button class="btn btn-danger btn-md m-auto">delete</button>
             </div>
             <div class="card-body overflow-auto" data-bs-spy='scroll'>
-                <div class="list-group task-list" >
+                <div class="list-group task-list">
                     <h4 class="text-center">In Complete tasks</h4>
-                    <% data.forEach(function(task){ 
-                        if (task.completed === false) { %>
+                    <% data.forEach(function(task){ if (task.completed===false) { %>
                         <div class="card text-danger p-2 mb-2">
-                            <div class="card-text d-flex justify-content-between align-items-center"> <span><%= task.taskName  %></span><button type="button" class="btn-close" aria-label="Close"></button></div>
+                            <div class="card-text d-flex justify-content-between align-items-center"> <span>
+                                    <%= task.taskName %>
+                                </span><button type="button" class="btn-close" aria-label="Close"></button></div>
                         </div>
-                        
-                        <% 
-                    }
-                }); %>
-                <h4 class="text-center">Completed tasks</h4>
-                <% data.forEach(function(task){ 
-                    if (task.completed === true) { %>
-                        <div class="card fst-italic text-success p-2 mb-2">
-                            <div class="card-text d-flex justify-content-between align-items-center"> <span><%= task.taskName  %></span><button type="button" class="btn-close" aria-label="Close"></button></div>
-                        </div>
-                        <% 
-                        }
-                    }); %>
+                        <% } }); %>
+                            <h4 class="text-center">Completed tasks</h4>
+                            <% data.forEach(function(task){ if (task.completed===true) { %>
+                                <div class="card fst-italic text-success p-2 mb-2">
+                                    <div class="card-text d-flex justify-content-between align-items-center"> <span>
+                                            <%= task.taskName %>
+                                        </span><button type="button" class="btn-close" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                                <% } }); %>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
