@@ -11,12 +11,43 @@
         .container{
             min-height: 100vh;
         }
+        .task-list{
+            max-height: 75vh;
+        }
     </style>
 </head>
 <body>
-    <div class="container d-flex justify-content-center align-items-center">
-        <div class="card m-2 p-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, unde. Nam minima eaque reiciendis illum cum atque, amet aspernatur placeat.
+    <div class="container h-100   d-flex justify-content-center align-items-center">
+        <div class="card m-2 h-75 p-2 w-50">
+            <h3 class="card-title text-center">Tasky Tracker</h3> 
+            <div class="card-header text-dark d-flex justify-content-between">
+                <button class="btn btn-primary btn-md m-auto">Add</button>
+                <button class="btn btn-danger btn-md m-auto">delete</button>
+            </div>
+            <div class="card-body overflow-auto" data-bs-spy='scroll'>
+                <div class="list-group task-list" >
+                    <h4 class="text-center">In Complete tasks</h4>
+                    <% data.forEach(function(task){ 
+                        if (task.completed === false) { %>
+                        <div class="card bg-dark text-danger p-2 mb-2">
+                            <span class="d-inline card-text"><%= task.taskName  %></span>
+                            <a href="/"></a>
+                        </div>
+
+                        <% 
+                        }
+                    }); %>
+                    <h4 class="text-center">Completed tasks</h4>
+                    <% data.forEach(function(task){ 
+                        if (task.completed === true) { %>
+                        <div class="card fst-italic text-success p-2 mb-2">
+                            <%= task.taskName  %>
+                        </div>
+                        <% 
+                        }
+                    }); %>
+                </div>
+            </div>
         </div>
     </div>
 </body>
