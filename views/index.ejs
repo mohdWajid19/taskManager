@@ -45,9 +45,12 @@
 <body>
     <div class="container h-100   d-flex justify-content-center align-items-center">
         <div class="card m-2 h-75 p-2 w-50">
+            <h3 class="card-title text-center m-auto ">Tasky Tracker</h3>
             <div class="card-header text-dark d-flex">
-                <h3 class="card-title text-center m-auto ">Tasky Tracker</h3>
-                <button class="btn btn-primary btn-md m-auto">Add</button>
+                <form action="/add" method="post">
+                    <input id="task" type="text" name="taskName" placeholder="enter task">
+                    <input type="submit" class="btn btn-primary btn-md m-auto" value="Add">
+                </form>
             </div>
             <div class="card-body overflow-auto" data-bs-spy='scroll'>
                 <div class="list-group task-list">
